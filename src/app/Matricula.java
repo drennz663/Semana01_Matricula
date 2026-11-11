@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Matricula {
 	
+	private static final int MAX_CREDITOS = 22;
 	Estudiante estudiante;
 	ArrayList<Curso> cursos;
 	
@@ -18,7 +19,7 @@ public class Matricula {
 	//se debe evitar agregar dos veces un mismo curso	
 		for (Curso c: cursos) {
 			if(c.codigo.equals(curso.codigo)) {
-				System.out.println("Curso ya matriculado");
+				System.out.println("Curso duplicado");
 				return;
 			}
 		}
@@ -29,8 +30,8 @@ public class Matricula {
 		}
 		int totalProyectado = creditosActuales + curso.creditos;
 		
-		if(totalProyectado > 22) {
-			System.out.println("Solo es posible agregar 22 creditos");
+		if(totalProyectado > MAX_CREDITOS) {
+			System.out.println("Solo es posible agregar hasta " + MAX_CREDITOS + " créditos");
 				return;
 		}
 		//Si el curso no ha sido agregado
